@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height">
+    <title>冒泡排序</title>
+    <style>::-webkit-scrollbar{display:none;}html,body{overflow:hidden;height:100%;margin:0;}</style>
+</head>
+<body>
+  <div id="mountNode"></div>
+  <div class="tool-box">
+    <button class="sort-button">点击排序</button>
+    <button class="restart-button">重新开始</button>
+  </div>
+<script>/*Fixing iframe window.innerHeight 0 issue in Safari*/document.body.clientHeight;</script>
+<script src="https://unpkg.com/@antv/g2plot@latest/dist/g2plot.min.js"></script>
+<script src="https://unpkg.com/jquery@3.2.1/dist/jquery.min.js"></script>
+<script>
+  var { Column } = G2Plot
+  var sData = [36, 23, 12, 4, 16, 6, 14]
+  var data
+  var formatAndUpdateData = function (sData) {
+    data = sData && sData.map((m, index) => ({ name: index, value: m }))
+  }
+  
+  formatAndUpdateData(sData)
+  var columnPlot = new Column('mountNode', {
+    data,
+    xField: 'name',
+    yField: 'value',
+    label: {
+      position: 'top'
+    }
+  })
+
+  columnPlot.render()
+
+  // function bubbleSort(arr){
+  //   for (let i = 0; i < arr.length; i++) {
+  //       for (let j = 0; j < arr.length - i - 1; j++) {
+  //           if (arr[j] > arr[j+1]) {
+  //               let max = arr[j]
+  //               arr[j] = arr[j+1]
+  //               arr[j+1] = max
+  //           }
+  //       }
+  //   }
+  //   return arr
+  // }
+
+  var bubbleSort = (function (){
+    let i = 0
+    let j = 0
+    return function(arr) {
+      const len = arr.length
+      for (; i < len; i++) {
+        for (; j < len - i - 1;) {
+          if (i === len - 2 && j === len -i - 2) {
+            console.log('冒泡结束')
+            return arr
+          }
+          if (arr[j] > arr[j+1]) {
+            let max = arr[j]
+            arr[j] = arr[j+1]
+            arr[j+1] = max
+          }
+          j += 1
+          if (j === len - i - 1) {
+            console.log('第' + (i + 1) + '轮冒泡完成')
+            i += 1
+            j = 0
+          }
+          return arr
+        }
+      }
+    }
+  })()
+
+  $('.sort-button').click(() => {
+    formatAndUpdateData(bubbleSort(sData))
+    columnPlot.changeData(data)
+  })
+
+  $('.restart-button').click(() => {
+    window.location.reload()
+  })
+</script>
+</body>
+<style>
+  .tool-box {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    width: 500px;
+    text-align: center;
+  }
+  #mountNode {
+    width: 500px;
+    margin: 100px;
+    padding: 50px;
+  }
+</style>
+</html>
