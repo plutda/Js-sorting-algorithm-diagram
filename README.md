@@ -1,7 +1,7 @@
 # Js-sorting-algorithm-diagram
 排序算法图解、Javascript实现的排序算法图解
 
-- 冒泡排序：[冒泡排序](https://plutda.github.io/Js-sorting-algorithm-diagram/bubble-sort.html)
+- 冒泡排序：[冒泡排序图解](https://plutda.github.io/Js-sorting-algorithm-diagram/bubble-sort.html)
 ```
 function bubbleSort(arr){
   for (let i = 0; i < arr.length; i++) {
@@ -16,7 +16,7 @@ function bubbleSort(arr){
   return arr
 }
 ```
-- 选择排序：[选择排序](https://plutda.github.io/Js-sorting-algorithm-diagram/select-sort.html)
+- 选择排序：[选择排序图解](https://plutda.github.io/Js-sorting-algorithm-diagram/select-sort.html)
 ```
 function selectSort(arr){
   for (let i=0; i<arr.length; i++){
@@ -32,7 +32,7 @@ function selectSort(arr){
   return arr
 }
 ```
-- 插入排序：[插入排序](https://plutda.github.io/Js-sorting-algorithm-diagram/insert-sort.html)
+- 插入排序：[插入排序图解](https://plutda.github.io/Js-sorting-algorithm-diagram/insert-sort.html)
 ```
 function insertionSort(arr) {
   var len = arr.length;
