@@ -55,7 +55,7 @@ function insertionSort(arr) {
 }
 ```
 
-- 快速排序：[冒泡排序图解](https://plutda.github.io/Js-sorting-algorithm-diagram/quick-sort.html)
+- 快速排序：[快速排序图解](https://plutda.github.io/Js-sorting-algorithm-diagram/quick-sort.html)
 - 快速排序是一种基于分治思想的、广泛应用的排序算法，其基本思想是通过一趟排序将待排序记录分隔成独立的两部分，其中一部分记录的关键字均比另一部分记录的关键字小，然后分别对这两部分记录继续进行排序，以  达到整个序列有序的效果。快速排序的过程可以简单描述为以下几个步骤：
 
   从待排序数列中选择一个元素作为基准（通常是第一个元素或最后一个元素）；
